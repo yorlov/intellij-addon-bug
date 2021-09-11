@@ -1,0 +1,35 @@
+plugins {
+    id 'org.jetbrains.intellij' version '1.1.6'
+    id 'org.jetbrains.kotlin.jvm' version '1.5.30'
+}
+
+repositories {
+    mavenCentral()
+}
+
+intellij {
+    //https://www.jetbrains.com/intellij-repository/snapshots
+    version = 'IU-212-EAP-SNAPSHOT'
+    plugins = ['JavaScriptLanguage', 'com.google.bamboo.id:1.6.2-203']
+}
+
+patchPluginXml {
+    sinceBuild = '212'
+}
+
+buildSearchableOptions {
+    enabled = false
+}
+
+def KOTLIN_JVM_TARGET = '11'
+def KOTLIN_API_VERSION = '1.4'
+
+compileKotlin.kotlinOptions {
+    jvmTarget = KOTLIN_JVM_TARGET
+    apiVersion = KOTLIN_API_VERSION
+}
+
+compileTestKotlin.kotlinOptions {
+    jvmTarget = KOTLIN_JVM_TARGET
+    apiVersion = KOTLIN_API_VERSION
+}

@@ -1,0 +1,18 @@
+<idea-plugin>
+    <id>com.stiltsoft.intellij.plugin</id>
+    <name>Atlassian Toolchain</name>
+    <vendor email="yorlov@stiltsoft.com" url="https://www.stiltsoft.com">StiltSoft</vendor>
+
+    <description><![CDATA[
+    Provide useful features for Atlassian addon development
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html on how to target different products -->
+    <depends>com.intellij.modules.lang</depends>
+    <depends>JavaScript</depends>
+    <depends>com.google.bamboo.id</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <psi.referenceContributor implementation="com.stiltsoft.intellij.toolchain.references.SoyTemplateReferenceContributor"/>
+    </extensions>
+</idea-plugin>
